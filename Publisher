@@ -1,26 +1,4 @@
 var Publisher = (function () {
-    if (!Array.prototype.map) {
-        Array.prototype.map = function (fn, thisArg) {
-            var context = thisArg || null,
-                i = 0,
-                result,
-                len = this.length;
- 
-            if ({}.toString.call(fn) != "[object Function]") {
-                throw new TypeError(fn + " is not a function");
-            }
- 
-            result = new Array(len);
-            for (; i < len; ++i) {
-                if (i in this) {
-                    result[i] = fn.call(context, this[i], i, this);
-                }
-            }
- 
-            return result;
-        };
-    };
- 
     function Publisher() {
         // Store an object of subscribers
         this.subscribers = {};
